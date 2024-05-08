@@ -15,11 +15,11 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for asset-management
-CREATE DATABASE IF NOT EXISTS `asset-management` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `asset-management`;
+-- Dumping database structure for corporate-finance
+CREATE DATABASE IF NOT EXISTS `corporate-finance` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `corporate-finance`;
 
--- Dumping structure for table asset-management.asset_list
+-- Dumping structure for table corporate-finance.asset_list
 CREATE TABLE IF NOT EXISTS `asset_list` (
   `id_asset_list` int NOT NULL AUTO_INCREMENT,
   `id_asset_type` int DEFAULT NULL,
@@ -32,29 +32,30 @@ CREATE TABLE IF NOT EXISTS `asset_list` (
   PRIMARY KEY (`id_asset_list`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table asset-management.asset_list: ~0 rows (approximately)
+-- Dumping data for table corporate-finance.asset_list: ~0 rows (approximately)
 DELETE FROM `asset_list`;
 
--- Dumping structure for table asset-management.asset_type
+-- Dumping structure for table corporate-finance.asset_type
 CREATE TABLE IF NOT EXISTS `asset_type` (
   `id_asset_type` int NOT NULL AUTO_INCREMENT,
   `name_asset_type` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_asset_type`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table asset-management.asset_type: ~0 rows (approximately)
+-- Dumping data for table corporate-finance.asset_type: ~0 rows (approximately)
 DELETE FROM `asset_type`;
 INSERT INTO `asset_type` (`id_asset_type`, `name_asset_type`) VALUES
 	(1, 'Residential'),
 	(2, 'Land Banks');
 
--- Dumping structure for table asset-management.users
+-- Dumping structure for table corporate-finance.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `permissions` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -63,10 +64,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table asset-management.users: ~1 rows (approximately)
+-- Dumping data for table corporate-finance.users: ~1 rows (approximately)
 DELETE FROM `users`;
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 'Amirah Athifah', 'azaharmyra95@gmail.com', NULL, '$2y$12$/DrhfIhZWzria/PVN9grIelQfH1TsaMyBeK9/VPttwQYQrdtnAoVC', NULL, '2024-03-24 17:31:42', '2024-03-24 17:31:42', NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `permissions`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
+  (1, 'Amirah Athifah', 'azaharmyra95@gmail.com', NULL, '$2y$12$/DrhfIhZWzria/PVN9grIelQfH1TsaMyBeK9/VPttwQYQrdtnAoVC', '[\"asset.create\",\"asset.edit\",\"asset.delete\"]', NULL, '2024-03-24 17:31:42', '2024-03-24 17:31:42', NULL),
+  (2, 'Halim', 'halim@gmail.com', NULL, '$2y$12$/DrhfIhZWzria/PVN9grIelQfH1TsaMyBeK9/VPttwQYQrdtnAoVC', '[\"asset.view\"]', NULL, '2024-03-24 17:31:42', '2024-03-24 17:31:42', NULL),
+  (3, 'Siti', 'siti@gmail.com', NULL, '$2y$12$/DrhfIhZWzria/PVN9grIelQfH1TsaMyBeK9/VPttwQYQrdtnAoVC', '[\"asset.create\",\"asset.edit\",\"asset.delete\"]', NULL, '2024-03-24 17:31:42', '2024-03-24 17:31:42', NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AssetController;
+use App\Http\Controllers\LoanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +37,8 @@ Route::post('user-create', [UserController::class, 'create'])->name('user.create
 Route::get('user-edit/{id}', [UserController::class, 'edit'])->name('user.edit');
 Route::post('user-update', [UserController::class, 'update'])->name('user.update');
 Route::post('user-destroy', [UserController::class, 'destroy'])->name('user.destroy');
+
+Route::get('asset', [AssetController::class, 'index'])->name('asset.index');
+// Route::post('asset-create', [AssetController::class, 'create'])->name('asset.create');
+
+Route::get('loan', [LoanController::class, 'index'])->name('loan.index');
