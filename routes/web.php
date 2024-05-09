@@ -38,7 +38,9 @@ Route::get('user-edit/{id}', [UserController::class, 'edit'])->name('user.edit')
 Route::post('user-update', [UserController::class, 'update'])->name('user.update');
 Route::post('user-destroy', [UserController::class, 'destroy'])->name('user.destroy');
 
-Route::get('asset', [AssetController::class, 'index'])->name('asset.index');
+//Auto CRUD
+Route::resource('asset', 'AssetController');
+//Route::get('asset', [AssetController::class, 'index'])->name('asset.index');
 // Route::post('asset-create', [AssetController::class, 'create'])->name('asset.create');
 
 Route::get('loan', [LoanController::class, 'index'])->name('loan.index');

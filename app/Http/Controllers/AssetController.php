@@ -21,7 +21,31 @@ class AssetController extends Controller
      */
     public function create(Request $request)
     {
-        //
+        $asset = Asset::create([
+            'asset_name' => $request->assetName,
+            'asset_type' => $request->assetType,
+            'asset_desc' => $request->assetDesc,
+            'asset_status' => $request->assetStatus,
+            'asset_location' => $request->assetLoc,
+            'asset_dc' => $request->assetDC,
+            'asset_fee' => $request->assetFee,
+            'asset_pd' => $request->assetPD,
+            'asset_app_by' => $request->assetAppBy,
+            'asset_app_dt' => $request->assetAppDT,         
+        ]);
+        return redirect()->route('asset.index')
+                        ->with('success','Asset created successfully.');
+
+        /*$request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+  
+        User::create($request->all());
+   
+        return redirect()->route('students.index')
+                        ->with('success','Student created successfully.');*/
     }
 
     /**
