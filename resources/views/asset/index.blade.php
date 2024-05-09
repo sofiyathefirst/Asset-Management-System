@@ -40,9 +40,9 @@
                                 <button type="button" class="btn deleteUser" value="{{ $asset->id }}" data-bs-toggle="modal" data-bs-target="#deleteAsset">
                                     <i class="bi bi-trash3 text-primary"></i>
                                 </button>
-                                <!--<button type="button" class="btn deleteUser" value="{{ $asset->id }}" data-bs-toggle="modal" data-bs-target="#deleteAsset">
-                                    <i class="bi bi-trash3 text-primary"></i>
-                                </button>-->
+                                <button type="button" class="btn viewUser" value="{{ $asset->id }}" data-bs-toggle="modal" data-bs-target="#deleteAsset">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
                             </td>
                         </tr>
                     @endforeach
@@ -56,7 +56,7 @@
     @csrf
     <!-- Edit Modal -->
     <div class="modal fade" id="addAsset" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content"> 
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Add Asset</h5>
@@ -78,8 +78,7 @@
                     <div class="form-group row mb-2">
                         <label for="name" class="col-sm-2 col-form-label">Asset Description</label>
                         <div class="col-sm-10">
-                            <textarea id="assetDesc" name="assetDesc"></textarea>
-                            
+                            <input type="text" class="form-control" id="assetDesc" name="assetDesc">
                         </div>
                     </div>
                     <div class="form-group row mb-2">
@@ -103,13 +102,13 @@
                     <div class="form-group row mb-2">
                         <label for="name" class="col-sm-2 col-form-label">Asset Fee</label>
                         <div class="col-sm-10">
-                            <input type="integer" class="form-control" id="assetFee" name="assetFee">
+                            <input type="float" class="form-control" id="assetFee" name="assetFee">
                         </div>
                     </div>
                     <div class="form-group row mb-2">
                         <label for="name" class="col-sm-2 col-form-label">Asset Payment Date</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="assetPD" name="assetPD">
+                            <input type="" class="form-control" id="assetPD" name="assetPD">
                         </div>
                     </div>
                     <div class="form-group row mb-2">

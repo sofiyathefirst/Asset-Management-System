@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class asset extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'asset_name',
+        'asset_type',
+        'asset_desc',
+    ];
 }
