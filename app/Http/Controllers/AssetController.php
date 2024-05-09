@@ -13,7 +13,9 @@ class AssetController extends Controller
      */
     public function index()
     {
-        return view('asset.index');
+        $assets = Asset::get();
+        return view('asset.index')
+        ->with('assets', $assets);
     }
 
     /**
