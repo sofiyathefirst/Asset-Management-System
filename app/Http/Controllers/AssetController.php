@@ -71,7 +71,7 @@ class AssetController extends Controller
      */
     public function edit(string $id)
     {
-        $asset = Asset::find($id);
+       $asset = Asset::find($id);
         return 
         [
             'asset_name' => $asset->assetName,
@@ -83,6 +83,8 @@ class AssetController extends Controller
             'asset_fee' => $asset->assetFee,
             'asset_payment_date' => $asset->assetPD, 
         ];
+
+       
     }
 
     /**
@@ -90,7 +92,13 @@ class AssetController extends Controller
      */
     public function update(Request $request)
     {
-        $asset = Asset::find($request->editAsset);
+        //$asset = Asset::findOrFail($id);
+        //return view('asset.update', compact ('asset'));
+
+        //$asset = Asset::findOrFail($id);
+        //$asset ->update($equest->all());
+
+        $asset = Asset::find($request->editId);
         $asset->update([
             'asset_name' => $request->editName,
             'asset_type' => $request->editType,
@@ -103,6 +111,12 @@ class AssetController extends Controller
 
         ]);
         return redirect('/asset');
+
+        /*$employees = Employees::findOrFail($id);
+        $employees->update($request->all());
+  
+        return redirect()->route('employees.index')
+                        ->with('success','Employees updated successfully');*/
     }
 
     /**
