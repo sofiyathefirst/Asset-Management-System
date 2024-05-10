@@ -71,15 +71,38 @@ class AssetController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $asset = Asset::find($id);
+        return 
+        [
+            'asset_name' => $asset->assetName,
+            'asset_type' => $asset->assetType,
+            'asset_desc' => $asset->assetDesc,
+            'asset_status' => $asset->assetStatus,
+            'asset_location' => $asset->assetLoc,
+            'asset_depreciation_code' => $asset->assetDC,
+            'asset_fee' => $asset->assetFee,
+            'asset_payment_date' => $asset->assetPD, 
+        ];
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $asset = Asset::find($request->editAsset);
+        $asset->update([
+            'asset_name' => $request->editName,
+            'asset_type' => $request->editType,
+            'asset_desc' => $request->editDesc,
+            'asset_status' => $request->editStatus,
+            'asset_location' => $request->editLoc,
+            'asset_depreciation_code' => $request->editDC,
+            'asset_fee' => $request->editFee,
+            'asset_payment_date' => $request->editPD,
+
+        ]);
+        return redirect('/asset');
     }
 
     /**
@@ -87,6 +110,8 @@ class AssetController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        /*$user = User::find($request->deleteId);
+        $user->delete();
+        return redirect('/user');*/
     }
 }

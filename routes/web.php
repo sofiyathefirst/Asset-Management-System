@@ -42,5 +42,7 @@ Route::post('user-destroy', [UserController::class, 'destroy'])->name('user.dest
 //Route::resource('asset', 'AssetController');
 Route::get('asset', [AssetController::class, 'index'])->name('asset.index');
 Route::post('asset-create', [AssetController::class, 'create'])->name('asset.create');
+Route::get('asset-edit/{id}', [UserController::class, 'edit'])->name('asset.edit');
+
 
 Route::get('loan', [LoanController::class, 'index'])->name('loan.index');

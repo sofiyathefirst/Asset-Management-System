@@ -133,4 +133,77 @@
     </div>
 </form>
 <!-- add Assets -->
+
+<!-- edit Assets -->
+<form action="{{ route('asset.update') }}" method="post">
+    @csrf
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editAsset" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content"> 
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Asset</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row mb-2">
+                        <label for="name" class="col-sm-2 col-form-label">Asset Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="assetName" name="editName">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <label for="name" class="col-sm-2 col-form-label">Asset Type</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="assetType" name="editType">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <label for="name" class="col-sm-2 col-form-label">Asset Description</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="assetDesc" name="editDesc">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <label for="name" class="col-sm-2 col-form-label">Asset Status</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="assetStatus" name="editStatus">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <label for="name" class="col-sm-2 col-form-label">Asset Location</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="assetLoc" name="editLoc">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <label for="name" class="col-sm-2 col-form-label">Asset Depreciation Code</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="assetDC" name="editDC">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <label for="name" class="col-sm-2 col-form-label">Asset Fee</label>
+                        <div class="col-sm-10">
+                            <input type="float" class="form-control" id="assetFee" name="editFee">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <label for="name" class="col-sm-2 col-form-label">Asset Payment Date</label>
+                        <div class="col-sm-10">
+                            <input type="" class="form-control" id="assetPD" name="edittPD">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" class="form-control" id="editAsset" name="editAsset">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- edit asset -->
+
 @endsection
