@@ -110,8 +110,8 @@ class AssetController extends Controller
      */
     public function destroy(string $id)
     {
-        /*$user = User::find($request->deleteId);
-        $user->delete();
-        return redirect('/user');*/
+        $asset = Asset::find($request->deleteAsset);
+        $asset->delete();
+        return redirect('/asset');
     }
 }

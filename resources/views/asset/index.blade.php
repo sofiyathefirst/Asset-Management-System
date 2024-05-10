@@ -206,4 +206,76 @@
 </form>
 <!-- edit asset -->
 
+<!--Delete Asset -->
+<form action="{{ route('asset.destroy') }}" method="post">
+    @csrf
+    <div class="modal fade" id="deleteAsset" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content"> 
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-exclamation-triangle-fill text-danger"></i> Delete User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this account ?</p>
+
+                    <div class="form-group row mb-2">
+                        <label for="name" class="col-sm-2 col-form-label">Asset Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="deleteName" name="deleteName" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-2 col-form-label">Asset Type</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="deleteType" name="deleteType" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" class="form-control" id="deleteAsset" name="deleteAsset">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Keep Account</button>
+                    <button type="submit" class="btn btn-primary">Yes Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    var assetId;
+    
+    function getAssetData() {
+        $.ajax({
+            type: 'GET',
+            url: '/asset-edit/' + assetId,
+            success: function(data) {
+                console.log(data);
+                $('#editAsset').val(assetId);
+                $('#editName').val(data['asset_name']);
+                $('#editType').val(data['asset_type']);
+                $('#editDesc').val(data['asset_desc']);
+                $('#editStatus').val(data['asset_status']);
+                $('#editLoc').val(data['asset_location']);
+                $('#editDC').val(data['asset_depreciation_code']);
+                $('#editFee').val(data['asset_fee']);
+                $('#editPD').val(data['asset_payment_date']);
+    
+                $('#deleteAsset').val(assetId);
+                $('#deleteName').val(data['asset_name']);
+                $('#deleteType').val(data['asset_type']);
+            }
+        });
+    }
+    
+    $(".editAsset").click(function() {
+        assetId = $(this).val();
+        getAssetData();
+    });
+    
+    $(".deleteAsset").click(function() {
+        assetId = $(this).val();
+        getAssetData();
+    });
+    </script>
 @endsection
