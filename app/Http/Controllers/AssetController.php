@@ -29,11 +29,11 @@ class AssetController extends Controller
             'asset_desc' => $request->assetDesc,
             'asset_status' => $request->assetStatus,
             'asset_location' => $request->assetLoc,
-            'asset_dc' => $request->assetDC,
+            'asset_depreciation_code' => $request->assetDC,
             'asset_fee' => $request->assetFee,
-            'asset_pd' => $request->assetPD,
-            'asset_app_by' => $request->assetAppBy,
-            'asset_app_dt' => $request->assetAppDT,         
+            'asset_payment_date' => $request->assetPD,
+            'asset_approved_by' => $request->assetAppBy,
+            'asset_approved_datetime' => $request->assetAppDT,         
         ]);
         return redirect()->route('asset.index')
                         ->with('success','Asset created successfully.');
