@@ -98,7 +98,7 @@ class AssetController extends Controller
         //$asset = Asset::findOrFail($id);
         //$asset ->update($equest->all());
 
-        $asset = Asset::find($request->editId);
+        $asset = Asset::find($request->editAsset);
         $asset->update([
             'asset_name' => $request->editName,
             'asset_type' => $request->editType,
