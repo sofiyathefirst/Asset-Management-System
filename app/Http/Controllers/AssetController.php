@@ -14,40 +14,16 @@ class AssetController extends Controller
     public function index()
     {
         $assets = Asset::get();
-        return view('asset.index')
-        ->with('assets', $assets);
+        return view('asset.index', compact('assets'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
+    public function create()
     {
-        $asset = Asset::create([
-            'asset_name' => $request->assetName,
-            'asset_type' => $request->assetType,
-            'asset_desc' => $request->assetDesc,
-            'asset_status' => $request->assetStatus,
-            'asset_location' => $request->assetLoc,
-            'asset_depreciation_code' => $request->assetDC,
-            'asset_fee' => $request->assetFee,
-            'asset_payment_date' => $request->assetPD,
-            'asset_approved_by' => $request->assetAppBy,
-            'asset_approved_datetime' => $request->assetAppDT,         
-        ]);
-        return redirect()->route('asset.index')
-                        ->with('success','Asset created successfully.');
-
-        /*$request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required'
-        ]);
-  
-        User::create($request->all());
-   
-        return redirect()->route('students.index')
-                        ->with('success','Student created successfully.');*/
+        return view('asset.create');
+        
     }
 
     /**
@@ -56,6 +32,10 @@ class AssetController extends Controller
     public function store(Request $request)
     {
         //
+        Asset::create($request->all());
+   
+        return redirect()->route('asset.index')
+                        ->with('success','Asset added successfully!');
     }
 
     /**

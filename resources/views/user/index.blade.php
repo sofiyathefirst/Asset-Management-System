@@ -37,6 +37,7 @@
                             <td>
                                 <button type="button" class="btn editUser" value="{{ $user->id }}" data-bs-toggle="modal" data-bs-target="#editModal">
                                     <i class="bi bi-pencil text-primary"></i>
+                                    
                                 </button>
                                 <button type="button" class="btn deleteUser" value="{{ $user->id }}" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                     <i class="bi bi-trash3 text-primary"></i>

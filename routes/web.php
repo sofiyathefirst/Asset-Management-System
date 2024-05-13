@@ -41,9 +41,9 @@ Route::post('user-destroy', [UserController::class, 'destroy'])->name('user.dest
 //Auto CRUD
 //Route::resource('asset', 'AssetController');
 Route::get('asset', [AssetController::class, 'index'])->name('asset.index');
-Route::post('asset-create', [AssetController::class, 'create'])->name('asset.create');
-Route::get('asset-edit/{id}', [AssetController::class, 'edit'])->name('asset.edit');
-Route::post('asset-update', [AssetController::class, 'update'])->name('asset.update');
-Route::post('asset-destroy', [AssetController::class, 'destroy'])->name('asset.destroy');
+Route::post('asset', [AssetController::class, 'create'])->name('asset.create');
+Route::get('asset/{id}', [AssetController::class, 'edit'])->name('asset.edit');
+Route::post('asset', [AssetController::class, 'update'])->name('asset.update');
+Route::post('asset', [AssetController::class, 'destroy'])->name('asset.destroy');
 
 Route::get('loan', [LoanController::class, 'index'])->name('loan.index');
