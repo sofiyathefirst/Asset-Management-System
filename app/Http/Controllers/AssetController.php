@@ -20,9 +20,20 @@ class AssetController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('asset.create');
+       $data = new Asset;
+
+       $data->asset_name = $request->asset_name;
+       $data ->asset_type = $request->asset_type;
+       $data ->asset_desc = $request->asset_desc;
+       $data ->asset_status = $request->asset_status;
+       $data ->asset_location = $request->asset_location;
+       $data-> asset_depreciation_code = $request->asset_depreciation_code;
+       $data-> asset_fee = $request->asset_fee;
+       $data ->asset_payment_date = $request->asset_payment_date;
+       $data ->asset_approved_by = $request->asset_approved_by;
+       $data ->asset_approved_datetime = $request->asset_approved_datetime;
         
     }
 
