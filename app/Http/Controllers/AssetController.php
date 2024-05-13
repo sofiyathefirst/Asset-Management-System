@@ -34,6 +34,11 @@ class AssetController extends Controller
        $data ->asset_payment_date = $request->asset_payment_date;
        $data ->asset_approved_by = $request->asset_approved_by;
        $data ->asset_approved_datetime = $request->asset_approved_datetime;
+
+       $data -> save();
+
+       return redirect()->route('asset.index')
+       ->with('success','Asset added successfully!');
         
     }
 
