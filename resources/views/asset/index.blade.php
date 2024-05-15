@@ -34,13 +34,13 @@
                             <td>{{ $asset->asset_fee }}</td>
                             <td>
                                 <button type="button" class="btn editUser">
-                                    <a href="{{route('asset.edit', $asset->id)}}" type="button" class="bi-pencil text-primary"></a>
+                                    <a href="{{route('asset.edit',$asset->id)}}" type="button" class="bi-pencil text-primary"></a>
                                 </button>
-                                <form action="{{ route('asset.destroy', $asset->id) }}" method="POST" style="display:inline-block;">
+                                <form action="{{ route('asset.destroy',$asset->id) }}" method="POST" style="display:inline-block;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="button" class="btn deleteUser">
-                                        <a href="{{route('asset.edit', $asset->id)}}" type="button" class="bi bi-trash3 text-primary" onclick="return confirm('Are you sure?')"></a>
+                                        <a type="button" class="bi bi-trash3 text-primary" onclick="return confirm('Are you sure?')"></a>
                                     </button>
                                 </form>
                             </td>

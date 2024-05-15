@@ -34,21 +34,6 @@ class AssetsController extends Controller
     public function store(Request $request)
     {
         //
-        /*$data = new Asset;
-
-       $data->asset_name = $request->asset_name;
-       $data ->asset_type = $request->asset_type;
-       $data ->asset_desc = $request->asset_desc;
-       $data ->asset_status = $request->asset_status;
-       $data ->asset_location = $request->asset_location;
-       $data-> asset_depreciation_code = $request->asset_depreciation_code;
-       $data-> asset_fee = $request->asset_fee;
-       $data ->asset_payment_date = $request->asset_payment_date;
-       $data ->asset_approved_by = $request->asset_approved_by;
-       $data ->asset_approved_datetime = $request->asset_approved_datetime;
-
-       $data -> save();*/
-
        $request->validate([
         'asset_name' => 'required',
         'asset_type' => 'required',
@@ -56,7 +41,7 @@ class AssetsController extends Controller
         'asset_status' => 'nullable|string',
         'asset_location' => 'nullable|string',
         'asset_depreciation_code' => 'nullable|string',
-        'asset_fee' => 'nullable',
+        'asset_fee' => 'required',
         'asset_payment_date' => 'nullable',
         'asset_approved_by' => 'nullable',
         'asset_approved_datetime' => 'nullable'
@@ -83,6 +68,7 @@ class AssetsController extends Controller
     public function edit(Asset $assets)
     {
         //
+        //dd($assets);
         return view('asset.edit',compact('assets'));
         
     }
@@ -93,19 +79,6 @@ class AssetsController extends Controller
     public function update(Request $request, Asset $assets)
     {
         //
-        /*$data = Asset::find($id);
-
-       $data->asset_name = $request->asset_name;
-       $data ->asset_type = $request->asset_type;
-       $data ->asset_desc = $request->asset_desc;
-       $data ->asset_status = $request->asset_status;
-       $data ->asset_location = $request->asset_location;
-       $data-> asset_depreciation_code = $request->asset_depreciation_code;
-       $data-> asset_fee = $request->asset_fee;
-       $data ->asset_payment_date = $request->asset_payment_date;
-
-       $data -> save();*/
-
        $request->validate([
         'asset_name' => 'required',
         'asset_type' => 'required',
@@ -113,7 +86,7 @@ class AssetsController extends Controller
         'asset_status' => 'nullable|string',
         'asset_location' => 'nullable|string',
         'asset_depreciation_code' => 'nullable|string',
-        'asset_fee' => 'nullable',
+        'asset_fee' => 'required',
         'asset_payment_date' => 'nullable',
         'asset_approved_by' => 'nullable',
         'asset_approved_datetime' => 'nullable'

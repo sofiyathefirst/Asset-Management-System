@@ -15,9 +15,9 @@
     <div class="mb-3">
         <label for="asset_type" class="form-label">Asset Type</label>
         <select class="form-select" aria-label="Select Asset Type" id="asset_type" name="asset_type">
-            <option value="1">Residential</option>
-            <option value="2">Land</option>
-            <option value="3">Banks</option>
+            <option value="Residential">Residential</option>
+            <option value="Land">Land</option>
+            <option value="Banks">Banks</option>
         </select>
     </div>
     <div class="mb-3">
@@ -50,7 +50,11 @@
         <label for="asset_approved_datetime" class="form-label">Asset Approved Datetime</label>
         <input type="text" class="form-control" id="asset_approved_datetime" name="asset_approved_datetime" placeholder="Asset Approved DateTime">
     </div>
-        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+    <div class="text-end mb-2">
+        <a href="{{route('asset.index')}}" type="button" class="btn btn-light">Close</a>
         <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+        
 </form>
+@endsection
 <!-- add Assets -->
