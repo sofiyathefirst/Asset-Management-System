@@ -104,10 +104,12 @@ class AssetController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Asset $assets)
+    public function destroy($id)
     {
         //
+        $assets = Asset::findOrFail($id);
         $assets->delete();
+        
         return redirect()->route('asset.index')->with('success', 'Asset deleted successfully.');
     }
 }

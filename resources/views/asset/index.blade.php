@@ -39,8 +39,8 @@
                                 <form action="{{ route('asset.destroy',$asset->id) }}" method="POST" style="display:inline-block;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="button" class="btn deleteUser">
-                                        <a type="button" class="bi bi-trash3 text-primary" onclick="return confirm('Are you sure?')"></a>
+                                    <button type="submit" class="btn deleteUser">
+                                        <a class="bi bi-trash3 text-primary" onclick="return confirm('Are you sure you want to delete this asset?')"></a>
                                     </button>
                                 </form>
                             </td>
