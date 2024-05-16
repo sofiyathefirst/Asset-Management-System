@@ -56,9 +56,10 @@ class AssetController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Asset $assets)
+    public function show($id)
     {
         //
+        $assets = Asset::find($id);
         return view('asset.show',compact('assets'));
     }
 
@@ -109,7 +110,7 @@ class AssetController extends Controller
         //
         $assets = Asset::findOrFail($id);
         $assets->delete();
-        
+
         return redirect()->route('asset.index')->with('success', 'Asset deleted successfully.');
     }
 }

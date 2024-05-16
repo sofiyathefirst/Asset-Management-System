@@ -43,6 +43,9 @@
                                         <a class="bi bi-trash3 text-primary" onclick="return confirm('Are you sure you want to delete this asset?')"></a>
                                     </button>
                                 </form>
+                                <button type="button" class="btn showUser">
+                                    <a href="{{route('asset.show',$asset->id)}}" type="button" class="bi bi-three-dots text-primary"></a>
+                                </button>
                             </td>
                         </tr>
                     @endforeach
