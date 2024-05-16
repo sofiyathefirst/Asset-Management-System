@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\Asset;
 use Hash;
 
-class AssetsController extends Controller
+class AssetController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -65,10 +65,11 @@ class AssetsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Asset $assets)
+    public function edit($id)
     {
         //
         //dd($assets);
+        $assets = Asset::find($id);
         return view('asset.edit',compact('assets'));
         
     }
@@ -76,10 +77,13 @@ class AssetsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Asset $assets)
+    public function update(Request $request, $id)
     {
         //
-       $request->validate([
+        $assets = Asset::findOrFail($id);
+
+        //Validate the request data
+        $validated = $request->validate([
         'asset_name' => 'required',
         'asset_type' => 'required',
         'asset_desc' => 'nullable|string',
@@ -92,7 +96,7 @@ class AssetsController extends Controller
         'asset_approved_datetime' => 'nullable'
     ]);
 
-       $assets->update($request->all());
+       $assets->update($validated);
 
         return redirect()->route('asset.index')->with('success', 'Asset updated successfully.');
     }

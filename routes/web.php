@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AssetsController;
+use App\Http\Controllers\AssetController;
 use App\Http\Controllers\LoanController;
 
 /*
@@ -39,7 +39,8 @@ Route::post('user-update', [UserController::class, 'update'])->name('user.update
 Route::post('user-destroy', [UserController::class, 'destroy'])->name('user.destroy');
 
 //Auto CRUD
-Route::resource('asset', AssetsController::class);
+//Route::get('asset-edit/{id}', [AssetController::class, 'edit'])->name('asset.edit');
+Route::resource('asset', AssetController::class);
 //Route::get('asset', [AssetsController::class, 'index'])->name('asset.index');
 //Route::post('asset/create', [AssetsController::class, 'create'])->name('asset.create');
 //Route::get('asset/{id}', [AssetsController::class, 'edit'])->name('asset.edit');
