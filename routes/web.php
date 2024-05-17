@@ -47,4 +47,4 @@ Route::resource('asset', AssetController::class);
 //Route::post('asset', [AssetsController::class, 'update'])->name('asset.update');
 //Route::post('asset', [AssetsController::class, 'destroy'])->name('asset.destroy');
 
-Route::get('loan', [LoanController::class, 'index'])->name('loan.index');
+Route::resource('loan', LoanController::class);
